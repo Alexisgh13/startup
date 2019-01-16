@@ -1,0 +1,102 @@
+{% extends 'layout.html' %}
+{% block body %}
+
+    <div class="breadcomb-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="breadcomb-list">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <div class="breadcomb-wp">
+                                    <div class="breadcomb-icon">
+                                        <i class="fas fa-cubes"></i>
+                                    </div>
+                                    <div class="breadcomb-ctn">
+                                        <h2>Ajouter un centre d'intérêt</h2>
+                                        <p>ChangeDePote.com</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-3">
+                                <div class="breadcomb-report">
+                                    <button data-toggle="tooltip" data-placement="left" title="Télécharger "
+                                            class="btn"><i class="fas fa-download"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Data Table area Start-->
+    <div class="data-table-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="data-table-list">
+                        <div class="basic-tb-hd">
+                            <h2>Basic Example</h2>
+                            <p>It's just that simple. Turn your simple table into a sophisticated data table and offer
+                                your users a nice experience and great features without any effort.</p>
+                        </div>
+
+                        <div class="breadcomb-report">
+
+                            <form class="form-inline" method="POST" role="form">
+                                <span id="form_add_category">
+                                    <button type="submit" class="btn btn-primary mb-2">Ajouter</button>
+
+                                    <div class="form-group mx-sm-3 mb-2">
+                                        {{ formInterests.category(class_="form-control") }}
+                                        {{ formInterests.idCat(class_="form-control") }}
+                                    </div>
+                                </span>
+
+                                <a class="btn add_button"><i class="fas fa-plus"></i></a>
+                            </form>
+
+
+                        </div>
+
+                        <div class="table-responsive">
+
+                            <table id="data-table-basic" class="table table-striped table-category">
+                                <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Label</th>
+                                    <th>Catégorie</th>
+                                    <th></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for data in centreInterest %}
+                                    <tr>
+                                        <td width="10%">{{ loop.index }}</td>
+                                        <td>{{ data[0] }}</td>
+                                        <td>{{ data[1] }}</td>
+                                        <td width="10%" class="text-center"><a href="?label={{ data[0] }}&category={{ data[1] }}"
+                                                                               onclick="return confirm('Es-tu sûr de vouloir supprimer le centre d\'intérêt <{{ data[0] }}> lié à la catégorie <{{ data[1] }}> ?');"><i
+                                                class="fas fa-trash-alt"></i></a></td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                                <tfoot>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Label</th>
+                                </tr>
+                                </tfoot>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
