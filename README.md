@@ -1,4 +1,4 @@
-# Gollum
+# Admin Site
 
 Requires Python3.6+
 
@@ -13,7 +13,7 @@ Activate it :
 `source venv/bin/activate`
 
 Install dependencies :  
-`pip install -r requirements.txr`
+`pip install -r requirements.txt`
 
 Start Flask server :  
 `FLASK_APP=app.py flask run`
